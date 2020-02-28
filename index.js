@@ -2,7 +2,7 @@
 
 const apiKey = "TDfbmFieD2LYTdOVLu4rqFklkpYlBsfj6LzfeBEW";
 
-const searchURL = "https://developer.nps.gov/api/v1/parks";
+const searchURL = "https://api.nps.gov/api/v1/parks";
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params).map(
@@ -13,12 +13,12 @@ function formatQueryParams(params) {
 
 function findNationalParks(query, maxResults = 10) {
     const params = {
-        api_key: apiKey,
-        q: query,
-        maxResults
+        stateCode: query,
+        limit: maxResults,
+        api_key: apiKey
     };
     const queryString = formatQueryParams(params);
-    const url = searchURL + "?" + queryString;
+    const url = searchURL + "?" + queryString + '&api_key=' + apiKey;
 
     console.log(url);
 
@@ -43,9 +43,9 @@ function displayResults(responseJson) {
             `<li><a href="${responseJson.data[i].url}" target="_blank"><h3>${
             responseJson.data[i].fullName
             }</h3></a>
-      <p>${responseJson.data[i].description}</p>
-      <a href="${responseJson.data[i].directionsUrl}">Directions</a>
-      </li>`
+        <p>${responseJson.data[i].description}</p>
+        <a href="${responseJson.data[i].directionsUrl}">Directions</a>
+        </li>`
         );
     }
     $("#results").removeClass("hidden");
