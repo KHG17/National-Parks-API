@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>National Parks Search</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/US-NationalParkService-Logo.svg" />
+        <section class="title">
+            <h1>National Parks Search</h1>
+            <p>Find a list of National Parks to visit by State</p>
+        </section>
+
+        <section class="form">
+            <form id="js-form">
+                <fieldset>
+                    <label for="search-term">State</label>
+                    <input type="text" name="search-term" id="js-search-term" placeholder="Utah" value="Utah"
+                        required />
+                    <br>
+                    <label for="max-results">Max number of parks to view</label>
+                    <input type="number" name="max-results" id="js-max-results" value="10" />
+                    <br>
+                    <button type="submit" value="Search">Search</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <p id="js-error-message" class="error-message"></p>
+        <section id="results" class="hidden">
+            <h2 class="insert-state">Search results for</h2>
+            <ul id="results-list"></ul>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
